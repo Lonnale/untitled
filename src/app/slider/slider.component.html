@@ -1,0 +1,10 @@
+<p>slider works!</p>
+
+<div *ngFor="let question of questions">
+  {{question.ask}}
+  <br>
+  {{question.answer}}
+  <mat-slider (input)="onInputChange($event,question)" min="1" max="4" step="1" value="1.5"></mat-slider>
+
+</div>
+

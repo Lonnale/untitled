@@ -1,0 +1,106 @@
+<form [formGroup]="profileForm"
+      (ngSubmit)="onSubmit()">
+  <div class="lista">
+
+    <mat-form-field class="field-full-width">
+      <input matInput placeholder="first name"
+             formControlName='firstName'>
+
+      <mat-error *ngIf="firstName.hasError('required')"> Syötä etunimi</mat-error>
+      <mat-error *ngIf="firstName.hasError('minlength')"> 2 merkkiä pakollinen</mat-error>
+      <mat-error *ngIf="firstName.hasError('pattern')"> Täytyy olla nimi</mat-error>
+    </mat-form-field>
+
+  </div>
+
+  <div class="lista">
+
+    <mat-form-field class="field-full-width">
+      <input matInput placeholder="last name"
+             formControlName='lastName'>
+
+      <mat-error *ngIf="lastName.hasError('required')"> Syötä sukunimi</mat-error>
+      <mat-error *ngIf="lastName.hasError('minlength')"> 2 merkkiä pakollinen</mat-error>
+      <mat-error *ngIf="lastName.hasError('pattern')"> Täytyy olla nimi</mat-error>
+    </mat-form-field>
+
+  </div>
+
+  <div class="lista">
+
+    <mat-form-field class="field-full-width">
+      <input matInput placeholder="112297-477T"
+             formControlName='personID'>
+
+      <mat-error *ngIf="personID.hasError('required')"> Syötä ID</mat-error>
+      <mat-error *ngIf="personID.hasError('minlength')"> 2 merkkiä pakollinen</mat-error>
+      <mat-error *ngIf="personID.hasError('pattern')"> Syötä oikein ID</mat-error>
+    </mat-form-field>
+
+  </div>
+
+  <div class="lista">
+
+    <mat-form-field class="field-full-width">
+      <input matInput placeholder="Sähköposti"
+             formControlName='email'>
+
+      <mat-error *ngIf="personID.hasError('required')"> Syötä email</mat-error>
+      <mat-error *ngIf="personID.hasError('minlength')"> 2 merkkiä pakollinen</mat-error>
+      <mat-error *ngIf="personID.hasError('pattern')"> Syötä sposti oikein</mat-error>
+    </mat-form-field>
+
+  </div>
+
+  <div class="lista">
+
+    <mat-form-field class="field-full-width">
+      <input matInput placeholder="Käyttäjänimi"
+             formControlName='Username'>
+
+      <mat-error *ngIf="personID.hasError('required')"> Syötä Käyttäjänimi</mat-error>
+      <mat-error *ngIf="personID.hasError('minlength')"> 6 merkkiä pakollinen</mat-error>
+      <mat-error *ngIf="personID.hasError('pattern')"> Syötä Käyttäjänimi oikein</mat-error>
+    </mat-form-field>
+
+  </div>
+
+  <div class="lista">
+
+    <mat-form-field class="field-full-width">
+      <input matInput
+             type="password"
+             placeholder="Salasana"
+             formControlName='Password'>
+
+      <mat-error *ngIf="personID.hasError('required')"> Syötä Salasana</mat-error>
+      <mat-error *ngIf="personID.hasError('minlength')"> 8 merkkiä pakollinen</mat-error>
+      <mat-error *ngIf="personID.hasError('pattern')">ainakin yksi kirjain ja yksi numero</mat-error>
+    </mat-form-field>
+
+  </div>
+  <div class="lista">
+
+    <mat-form-field class="field-full-width">
+      <input matInput
+             type="password"
+             placeholder="Vahvista Salasana"
+             formControlName='Password2'
+             pattern="{{Password.value}}">
+      <mat-error *ngIf="personID.hasError('required')"> Syötä Salasana</mat-error>
+      <mat-error *ngIf="personID.hasError('minlength')"> 8 merkkiä pakollinen</mat-error>
+      <mat-error *ngIf="personID.hasError('pattern')">ainakin yksi kirjain ja yksi numero</mat-error>
+    </mat-form-field>
+
+  </div>
+  <mat-checkbox class="example-margin">Check me!
+    <input
+      type="checkbox"
+      formControlName="acceptTerms"
+      id="acceptTerms" class="form-check-input">
+    <button class="btn btn-primary mr-1">Submit</button>
+    <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
+
+  </mat-checkbox>
+
+</form>

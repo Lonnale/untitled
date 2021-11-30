@@ -1,0 +1,25 @@
+<p>toolbar works!</p>
+<mat-toolbar>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon> menu</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-menu #menu="matMenu">
+  <a routerLink="/calculator" routerLinkActive="active">
+    Calculator
+  </a>
+  <br>
+  <a routerLink="/reactiveform" routerLinkActive="active">
+    Reactiveform
+  </a>
+  <br>
+  <a routerLink="/slider" routerLinkActive="active">
+    Slider
+  </a>
+  <br>
+  <a routerLink="/cinema" routerLinkActive="active">
+    Finnkino
+  </a>
+</mat-menu>
+
+
