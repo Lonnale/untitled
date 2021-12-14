@@ -33,7 +33,7 @@ export class ReactiveformComponent implements OnInit {
           'A.Aurinkoinen@gmail.com', [Validators.required, Validators.minLength(2), Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}')]),
 
         Username: new FormControl(
-          'Anna96', [Validators.required, Validators.minLength(2), Validators.pattern('(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])')]),
+          'Anna96', [Validators.required, Validators.minLength(6), Validators.pattern('(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])')]),
 
         Password: new FormControl(
           'annankatu123', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}')]),
@@ -47,19 +47,6 @@ export class ReactiveformComponent implements OnInit {
 
 
   }
-
-  /* onReset() {
-     this.submitted = false;
-     this.profileForm.reset;
-   }
-
-   onSubmit() {
-      this.submitted = true;
-      //lopeta tähän jos invalid
-      if (this.profileForm.invalid) {
-        return;
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.form.value, null, 4));
-      } */
 
   get firstName() {
     return this.profileForm.get('firstName');
@@ -90,11 +77,14 @@ export class ReactiveformComponent implements OnInit {
   }
 
   onReset() {
-
+    this.submitted = false;
+    this.profileForm.reset;
   }
 
   onSubmit() {
-    
+    console.warn('profileForm.value: ' + this.profileForm.value.firstName);
+    console.warn('profileForm.valid: ' + this.profileForm.valid);
+    this.profileForm.reset();
   }
 }
 

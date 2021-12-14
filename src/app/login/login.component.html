@@ -1,0 +1,32 @@
+<form [formGroup]="profileForm"
+      (ngSubmit)="onSubmit()">
+  <div class="lista">
+
+    <mat-form-field class="field-full-width">
+      <input matInput placeholder="Sähköposti"
+             formControlName='email'>
+
+      <mat-error *ngIf="email.hasError('required')"> Syötä email</mat-error>
+      <mat-error *ngIf="email.hasError('minlength')"> 2 merkkiä pakollinen</mat-error>
+      <mat-error *ngIf="email.hasError('pattern')"> Syötä sposti oikein</mat-error>
+    </mat-form-field>
+
+  </div>
+  <div class="lista">
+
+    <mat-form-field class="field-full-width">
+      <input matInput
+             type="password"
+             placeholder="Salasana"
+             formControlName='Password'>
+
+      <mat-error *ngIf="Password.hasError('required')"> Syötä Salasana</mat-error>
+      <mat-error *ngIf="Password.hasError('minlength')"> 8 merkkiä pakollinen</mat-error>
+      <mat-error *ngIf="Password.hasError('pattern')">ainakin yksi kirjain ja yksi numero</mat-error>
+    </mat-form-field>
+
+  </div>
+  <div>
+    <button type="button" class="btn btn-primary" (click)="login">Login</button>
+    <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+  </div>

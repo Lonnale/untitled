@@ -45,9 +45,9 @@
       <input matInput placeholder="Sähköposti"
              formControlName='email'>
 
-      <mat-error *ngIf="personID.hasError('required')"> Syötä email</mat-error>
-      <mat-error *ngIf="personID.hasError('minlength')"> 2 merkkiä pakollinen</mat-error>
-      <mat-error *ngIf="personID.hasError('pattern')"> Syötä sposti oikein</mat-error>
+      <mat-error *ngIf="email.hasError('required')"> Syötä email</mat-error>
+      <mat-error *ngIf="email.hasError('minlength')"> 2 merkkiä pakollinen</mat-error>
+      <mat-error *ngIf="email.hasError('pattern')"> Syötä sposti oikein</mat-error>
     </mat-form-field>
 
   </div>
@@ -58,9 +58,9 @@
       <input matInput placeholder="Käyttäjänimi"
              formControlName='Username'>
 
-      <mat-error *ngIf="personID.hasError('required')"> Syötä Käyttäjänimi</mat-error>
-      <mat-error *ngIf="personID.hasError('minlength')"> 6 merkkiä pakollinen</mat-error>
-      <mat-error *ngIf="personID.hasError('pattern')"> Syötä Käyttäjänimi oikein</mat-error>
+      <mat-error *ngIf="Username.hasError('required')"> Syötä Käyttäjänimi</mat-error>
+      <mat-error *ngIf="Username.hasError('minlength')"> 6 merkkiä pakollinen</mat-error>
+      <mat-error *ngIf="Username.hasError('pattern')"> Syötä Käyttäjänimi oikein</mat-error>
     </mat-form-field>
 
   </div>
@@ -73,9 +73,9 @@
              placeholder="Salasana"
              formControlName='Password'>
 
-      <mat-error *ngIf="personID.hasError('required')"> Syötä Salasana</mat-error>
-      <mat-error *ngIf="personID.hasError('minlength')"> 8 merkkiä pakollinen</mat-error>
-      <mat-error *ngIf="personID.hasError('pattern')">ainakin yksi kirjain ja yksi numero</mat-error>
+      <mat-error *ngIf="Password.hasError('required')"> Syötä Salasana</mat-error>
+      <mat-error *ngIf="Password.hasError('minlength')"> 8 merkkiä pakollinen</mat-error>
+      <mat-error *ngIf="Password.hasError('pattern')">ainakin yksi kirjain ja yksi numero</mat-error>
     </mat-form-field>
 
   </div>
@@ -87,9 +87,9 @@
              placeholder="Vahvista Salasana"
              formControlName='Password2'
              pattern="{{Password.value}}">
-      <mat-error *ngIf="personID.hasError('required')"> Syötä Salasana</mat-error>
-      <mat-error *ngIf="personID.hasError('minlength')"> 8 merkkiä pakollinen</mat-error>
-      <mat-error *ngIf="personID.hasError('pattern')">ainakin yksi kirjain ja yksi numero</mat-error>
+      <mat-error *ngIf="Password2.hasError('required')"> Syötä Salasana</mat-error>
+      <mat-error *ngIf="Password2.hasError('minlength')"> 8 merkkiä pakollinen</mat-error>
+      <mat-error *ngIf="Password2.hasError('pattern')">ainakin yksi kirjain ja yksi numero</mat-error>
     </mat-form-field>
 
   </div>
@@ -98,7 +98,7 @@
       type="checkbox"
       formControlName="acceptTerms"
       id="acceptTerms" class="form-check-input">
-    <button class="btn btn-primary mr-1">Submit</button>
+    <button class="btn btn-primary mr-1" (click)="onSubmit()">Submit</button>
     <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
 
   </mat-checkbox>

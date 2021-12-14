@@ -9,11 +9,14 @@ import {Observable} from "rxjs";
   styleUrls: ['./cinema.component.css']
 })
 export class CinemaComponent implements OnInit {
-  private cinemaData$: Observable<[]> | undefined;
+  cinemaData$: Observable<any>;
+  title = 'angular-text-search-highlight';
+  searchTerm: any;
 
-
-  constructor(private moviesService: MoviesService) {
-    this.cinemaData$ = this.cinemaService.getData();
+  constructor(private moviesService: MoviesService
+  ) {
+    this
+      .cinemaData$ = this.moviesService.getData();
   }
 
 

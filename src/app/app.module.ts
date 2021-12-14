@@ -8,7 +8,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {CalculatorComponent} from './calculator/calculator.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {SliderComponent} from './slider/slider.component';
-import {MatSliderModule} from '@angular/material/slider';
+import {MatSliderChange, MatSliderModule} from '@angular/material/slider';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatMenuModule} from "@angular/material/menu";
@@ -19,8 +19,20 @@ import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatCheckboxModule} from "@angular/material/checkbox";
-import {MatExpansionModule} from "@angular/material/expansion";
-import {CinemaComponent} from './cinema/cinema.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {CinemaComponent} from "./cinema/cinema.component";
+import {HttpClientModule} from "@angular/common/http";
+import {LoginComponent} from './login/login.component';
+import {MaintenanceComponent} from './maintenance/maintenance.component';
+//import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
+import {PipeNamePipe} from './pipes/pipe-name.pipe';
+import {TemplateformComponent} from './templateform/templateform.component';
+import {TenttisliderComponent} from './tenttislider/tenttislider.component';
+//import {PipePipe} from './pipe.pipe';
+//import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+//import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+
 
 @NgModule({
   declarations: [
@@ -30,7 +42,13 @@ import {CinemaComponent} from './cinema/cinema.component';
     SliderComponent,
     ToolbarComponent,
     ReactiveformComponent,
-    CinemaComponent
+    CinemaComponent,
+    LoginComponent,
+    MaintenanceComponent,
+    PipeNamePipe,
+    TemplateformComponent,
+    TenttisliderComponent,
+    // PipePipe
   ],
   imports: [
     BrowserModule,
@@ -49,6 +67,12 @@ import {CinemaComponent} from './cinema/cinema.component';
     FormsModule,
     MatCheckboxModule,
     MatExpansionModule,
+    HttpClientModule,
+
+    //AngularFireModule.initializeApp(environment.firebase, 'angular-auth.firebase'),
+    //AngularFireAuthModule,
+    //AngularFirestoreModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

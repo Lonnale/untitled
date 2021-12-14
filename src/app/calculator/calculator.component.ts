@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {jitOnlyGuardedExpression} from "@angular/compiler/src/render3/util";
 
 @Component({
@@ -17,35 +17,30 @@ export class CalculatorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addValue(value: string) {
-    console.log('addValue value: ' + value);
+  addValue(button: string) {
 
-    if (value == '=') {
+
+    if (button == '=') {
       // lasketaan lauseke esim
       // eval ('2 + 2');
       console.log('lausekkeen arvo on: ' + eval('2+2'));
       this.result = eval(this.result);
+      
+    } else if (button == '*') {
+      this.result = this.result.concat(button);
+
+    } else if (button == '-') {
+      this.result = this.result.concat(button);
+
+    } else if (button == '/') {
+      this.result = this.result.concat(button);
+
+    } else {
+      this.result = this.result.concat(button);
     }
-
-
-
-       else if (value == '*'){
-      console.log('lausekkeen arvo on: ' + eval('2*2'));
-        this.result = eval(this.result);
-    }
-
-      else if (value == '-') {
-      console.log('lausekkeen arvo on: ' + eval('2-2'));
-      this.result = eval(this.result);
-    }
-
-    else {
-      this.result = this.result.concat(value);
-    }
-
 
 
   }
 
 
-  }
+}

@@ -1,0 +1,96 @@
+<p>templateform works!</p>
+<div class="lista">
+  <input matInput
+         placeholder="ID-tunnus 112233-255R"
+         name="personID"
+         [(ngModel)]="person.PersonID"
+         #IDname="ngModel"
+         required minlength="2" pattern="^(0[1-9]|[12]\d|3[01])(0[1-9]|1[0-2])([5-9]\d+|\d\d-|[01]\dA)\d{3}[\dA-Z]">
+  <mat-error *ngIf="IDname.hasError('required')"> Syötä ID</mat-error>
+  <mat-error *ngIf="IDname.hasError('minlength')"> 2 merkkiä pakollinen</mat-error>
+  <mat-error *ngIf="IDname.hasError('pattern')"> Syötä oikein ID</mat-error>
+
+  <form (ngSubmit)="onSubmit(form1)" #form1="ngForm"></form>
+</div>
+
+<div class="lista">
+  <input matInput
+         placeholder="etunimi"
+         name="firstName"
+         [(ngModel)]="person.Firstname"
+         #fname="ngModel"
+         required minlength="2" pattern="^[a-zA-Z ]*$">
+  <mat-error *ngIf="fname.hasError('required')"> Syötä etunimi</mat-error>
+  <mat-error *ngIf="fname.hasError('minlength')"> 2 merkkiä pakollinen</mat-error>
+  <mat-error *ngIf="fname.hasError('pattern')"> Täytyy olla oikea nimi</mat-error>
+
+  <form (ngSubmit)="onSubmit(form1)" #form1="ngForm"></form>
+</div>
+
+<div class="lista">
+  <input matInput
+         placeholder="Sukunimi"
+         name="lastName"
+         [(ngModel)]="person.Lastname"
+         #lname="ngModel"
+         required minlength="2" pattern="^[a-zA-Z ]*$">
+  <mat-error *ngIf="lname.hasError('required')"> Syötä etunimi</mat-error>
+  <mat-error *ngIf="lname.hasError('minlength')"> 2 merkkiä pakollinen</mat-error>
+  <mat-error *ngIf="lname.hasError('pattern')"> Täytyy olla oikea nimi</mat-error>
+
+  <form (ngSubmit)="onSubmit(form1)" #form1="ngForm"></form>
+</div>
+<div class="lista">
+  <input matInput
+         placeholder="Sähköposti"
+         name="Email"
+         [(ngModel)]="person.Email"
+         #email="ngModel"
+         required minlength="2" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}">
+  <mat-error *ngIf="email.hasError('required')"> Syötä sposti</mat-error>
+  <mat-error *ngIf="email.hasError('minlength')"> 2 merkkiä pakollinen</mat-error>
+  <mat-error *ngIf="email.hasError('pattern')"> Täytyy olla oikea sposti</mat-error>
+
+  <form (ngSubmit)="onSubmit(form1)" #form1="ngForm"></form>
+</div>
+<div class="lista">
+  <input matInput
+         placeholder="Käyttäjänimi"
+         name="Username"
+         [(ngModel)]="person.Username"
+         #Uname="ngModel"
+         required minlength="6" pattern="(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])">
+  <mat-error *ngIf="Uname.hasError('required')"> Syötä käyttäjänimi</mat-error>
+  <mat-error *ngIf="Uname.hasError('minlength')"> 6 merkkiä pakollinen</mat-error>
+  <mat-error *ngIf="Uname.hasError('pattern')"> Syötä käyttäjänimi oikein</mat-error>
+
+  <form (ngSubmit)="onSubmit(form1)" #form1="ngForm"></form>
+</div>
+<div class="lista">
+  <input matInput
+         placeholder="Salasana"
+         name="Password"
+         [(ngModel)]="person.Password"
+         #pwrd="ngModel"
+         required minlength="8" pattern="(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])">
+  <mat-error *ngIf="pwrd.hasError('required')"> Syötä käyttäjänimi</mat-error>
+  <mat-error *ngIf="pwrd.hasError('minlength')"> 8 merkkiä pakollinen</mat-error>
+  <mat-error *ngIf="pwrd.hasError('pattern')"> Syötä ainakin yksi kirjain ja yksi numero</mat-error>
+
+  <form (ngSubmit)="onSubmit(form1)" #form1="ngForm"></form>
+</div>
+<div class="lista">
+  <input matInput
+         placeholder="Vahvista salasana"
+         name="Password2"
+         [(ngModel)]="person.Password2"
+         #pwrd="ngModel"
+         pattern="{{pwrd.value}}"
+         required minlength="8" pattern="(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])">
+  <mat-error *ngIf="pwrd.hasError('required')"> Syötä käyttäjänimi</mat-error>
+  <mat-error *ngIf="fname.hasError('minlength')"> 8 merkkiä pakollinen</mat-error>
+  <mat-error *ngIf="fname.hasError('pattern')"> Syötä ainakin yksi kirjain ja yksi numero</mat-error>
+
+  <form (ngSubmit)="onSubmit(form1)" #form1="ngForm"></form>
+  <button type="submit" class="btn btn-success" [disabled]="form1.invalid">Submit</button>
+</div>
